@@ -1,0 +1,29 @@
+---
+title: "Education/Income Project"
+author: "Rekik Worku"
+date: "2023-04-11"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(reshape2)
+library(readxl)
+library(readr)
+
+```
+
+## Introduction
+
+This data is from the 2000 Census. It shows the median earnings of workers ages 21 to 64 who worked 50 weeks or more and 35 or more hours per week in 1999 were classified as year-round full-time (YRFT) workers. This analysis will highlight the relationship between education and income.
+
+##Analysis
+
+```{r}
+ggplot(data = table_final, mapping = aes( x = education, y = median_earnings,fill= education)) + 
+  geom_bar(stat = "identity") +
+  labs(x = "Education Level", y = "Median Earnings (in dollar) ",fill="Type of Activity",
+       title = "Relationship Between Education Level and Median Earnings of U.S Adults Ages 21-64 (2000) ")
+scale_fill_brewer( palette = "Pastel2" )
+```
